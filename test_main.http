@@ -1,0 +1,71 @@
+# Test your FastAPI endpoints
+
+GET http://127.0.0.1:8000/
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8000/hello/User
+Accept: application/json
+
+###
+
+### List all favorites
+GET http://127.0.0.1:8000/favorites
+Accept: application/json
+
+###
+
+### Get a single favorite by ID
+GET http://127.0.0.1:8000/favorites/1
+Accept: application/json
+
+###
+
+### Get a favorite that does not exist (expect 404)
+GET http://127.0.0.1:8000/favorites/999
+Accept: application/json
+
+###
+
+### Add a new favorite
+POST http://127.0.0.1:8000/favorites
+Content-Type: application/json
+
+{
+  "url": "github.com"
+}
+
+###
+
+### Update an existing favorite
+PUT http://127.0.0.1:8000/favorites/1
+Content-Type: application/json
+
+{
+  "url": "google.co.uk"
+}
+
+###
+
+### Update a favorite that does not exist (expect 404)
+PUT http://127.0.0.1:8000/favorites/999
+Content-Type: application/json
+
+{
+  "url": "notfound.com"
+}
+
+###
+
+### Delete a favorite
+DELETE http://127.0.0.1:8000/favorites/3
+Accept: application/json
+
+###
+
+### Delete a favorite that does not exist (expect 404)
+DELETE http://127.0.0.1:8000/favorites/999
+Accept: application/json
+
+###
